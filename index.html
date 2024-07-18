@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="src.js"></script>
+</head>
+<body>
+    <button id="shortenURLButton">Shorten URL</button>
+    <button id="qrGeneratorButton">QR Generator</button>
+    <button id="historyButton">History</button>
+
+    <div id="shortenURLContent" class="content">
+        <div class="urlInput">
+            <h2>Shorten your link fastly</h2>
+            <input type="text" id="userInput" placeholder="Enter a link to shorten it...">
+            <button id="shortenInputButton">Process</button>
+            <div id="resultLink" class="result"></div>
+        </div>
+    </div>
+
+    <div id="qrGeneratorContent" class="content">
+        <p>Something in here.</p>
+    </div>
+
+    <div id="historyContent" class="content">
+        <p>Something in here.</p>
+    </div>
+</body>
+</html>

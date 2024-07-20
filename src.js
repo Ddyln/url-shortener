@@ -28,8 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-function showContent(contentId) {
+const showContent = (contentId) => {
     // Hide all content
     var contents = document.getElementsByClassName('content');
     for (var i = 0; i < contents.length; i++) {
@@ -40,6 +39,6 @@ function showContent(contentId) {
     document.getElementById(contentId).style.display = 'block';
 }
 
-function processUserInput(input) {
+const processUserInput = (input) => {
     return input + ' (after being shortened)';
 }

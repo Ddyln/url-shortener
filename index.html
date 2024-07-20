@@ -15,8 +15,10 @@
     <div id="shortenURLContent" class="content">
         <div class="urlInput">
             <h2>Shorten your link fastly</h2>
-            <input type="text" id="userInput" placeholder="Enter a link to shorten it...">
-            <button id="shortenInputButton">Process</button>
+            <form action="http://127.0.0.1:5500/process" method="GET">
+                <input type="text" name="link" id="userInput" placeholder="Enter a link to shorten it...">
+                <input type="submit" value="Process" id="shortenInputButton">
+            </form>
             <div id="resultLink" class="result"></div>
         </div>
     </div>

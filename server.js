@@ -15,11 +15,8 @@ app.get('/process', function (req, res) {
    res.end(JSON.stringify(response));
 });
 
-var server = app.listen(5500, function () {
-
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log("App is listening at: http://%s:%s", host, port)
-
-})
+var server = app.listen(5500, '127.0.0.1', function () {
+   var host = server.address().address;
+   var port = server.address().port;
+   console.log("App is listening at: http://%s:%s", host, port);
+});

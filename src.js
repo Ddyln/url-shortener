@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('shortenURLButton').addEventListener('click', function() {
+    document.getElementById('shortenURL').addEventListener('click', function() {
         showContent('shortenURLContent');
 
          // Reset input and result if this button is clicked
         document.getElementById('userInput').value = '';
-        document.getElementById('resultLink').textContent = '';
+        document.getElementById('urlOutput').textContent = '';
     });
     
-    document.getElementById('qrGeneratorButton').addEventListener('click', function() {
+    document.getElementById('qrGenerator').addEventListener('click', function() {
         showContent('qrGeneratorContent');
     });
     
-    document.getElementById('historyButton').addEventListener('click', function() {
+    document.getElementById('history').addEventListener('click', function() {
         showContent('historyContent');
     });
     showContent('shortenURLContent');
     
-    document.getElementById('shortenInputButton').addEventListener('click', () => {
+    document.getElementById('linkButton').addEventListener('click', () => {
         // Get the user input
         const userInput = document.getElementById('userInput').value;
 
@@ -41,5 +41,6 @@ function showContent(contentId) {
 }
 
 function processUserInput(input) {
-    return input + ' (after being shortened)';
+    return input + ' (after being shortened)';    
 }
+

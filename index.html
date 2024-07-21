@@ -6,29 +6,49 @@
     <title>URL Shortener</title>
     <link rel="stylesheet" href="styles.css">
     <script src="src.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <button id="shortenURLButton">Shorten URL</button>
-    <button id="qrGeneratorButton">QR Generator</button>
-    <button id="historyButton">History</button>
-
-    <div id="shortenURLContent" class="content">
-        <div class="urlInput">
+    <header>
+        <nav>
+          <ul>
+            <li><a id="shortenURL">Shorten URL</a></li>
+            <li><a id="qrGenerator">QR Generator</a></li>
+            <li><a id="history">History</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+    <main>
+        <div id="shortenURLContent" class="content">
             <h2>Shorten your link fastly</h2>
-            <form action="http://127.0.0.1:5500/process" method="GET">
-                <input type="text" name="link" id="userInput" placeholder="Enter a link to shorten it...">
-                <input type="submit" value="Process" id="shortenInputButton">
-            </form>
-            <div id="resultLink" class="result"></div>
+            <div class="urlInput">
+                <form action="http://127.0.0.1:5500/process" method="GET" class="formLinkInput">
+                    <input type="text" name="link" class="linkInput" id="url" placeholder="Enter your URL here...">
+                    <input type="submit" class="linkButton" value="Process">
+                </form>
+            </div>
+            <div class="urlOutput">
+                <div class="shortenedLink">
+                    <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank">#Link_after</a></p>
+                    <div class="logo">
+                        <icon class="copy-logo" id="copy-logo"><i class='bx bx-copy'></i></icon>
+                        <icon class="qr-logo" id="qr-logo"><i class='bx bx-qr'></i></icon>
+                        <icon class="close-logo" id="close-logo"><i class='bx bx-x'></i></icon></div>
+                    <a href="#" id="unshortenedLink" target="_blank">#Link_before</a>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div id="qrGeneratorContent" class="content">
-        <p>Something in here.</p>
-    </div>
+        <div id="qrGeneratorContent" class="content">
+            <h2>QR code generator</h2>
+            <p>Something in here.</p>
+        </div>
 
-    <div id="historyContent" class="content">
-        <p>Something in here.</p>
-    </div>
+        <div id="historyContent" class="content">
+            <h2>Your history</h2>
+            <p>Something in here.</p>
+        </div>
+    </main>
 </body>
 </html>

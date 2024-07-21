@@ -1,18 +1,216 @@
-.content {
-    display: none;
+@import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root{
+    --first-color: #152737;
+    --second-color: #2a6296;
+    --third-color: #2c6098;
+    --forth-color: #dfdfe2;
+    --fifth-color: #83B2D3;
+    --sixth-color: #112A62;
 }
 
-#userInput {
-    padding: 10px;
-    width: 300px;
-    margin: 10px 0;
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #152737, #335371);
+    margin: auto;
+    padding: auto;
 }
 
-button {
-    padding: 10px 20px;
+header {
+    width: 100%;
+    height: 50px;
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    border-bottom: #dfdfe2 1px solid;
+}
+  
+nav {
+    width: 100%;
+    max-width: 600px;
+    height: 50px;
+    margin: 0 auto;
+}
+  
+nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-inline-start: 0;
+    margin-block: 0;
+    height: 100%;
+}
+  
+nav > ul > li {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: medium;
+    font-size: 15px;
+    color: #dfdfe2;
+    margin: 0 0.2rem;
+    padding: 0.2rem;
+    display: block;
+}
+  
+nav > ul > li:hover {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+  
+li > a {
+    color: inherit;
+    text-decoration: none;
+}
+  
+main {
+    padding-top: 50px;
+    margin: 50px 0 0 0;
 }
 
-.urlInput {
-    margin-top: 50px;
+h2{
+    color: white;
+    font-size: 68px;
+    font-family: "Hanuman", sans-serif;
+    font-weight: 900;
     text-align: center;
+    text-shadow: 4px 4px #485F7B;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.formLinkInput{
+    position: relative;
+    display: flex;
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.linkInput{
+    width: 600px;
+    height: 45px;
+    background-color: aliceblue;
+    border: none;
+    color:#152737;
+    font-family: "Hanuman", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 15px;
+    padding-left: 15px;
+}
+
+.linkInput::placeholder{
+    color: #617e97;
+}
+
+.linkInput:focus{
+    outline: none;
+}
+
+.linkButton{
+    width: 120px;
+    height: 47px;
+    background-color: var(--third-color);
+    color: white;
+    font-family: "Hanuman", sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.linkButton:hover{
+    font-weight: 600;
+}
+
+.shortenedLink{
+    width: 731px;
+    height: 100px;
+    background-color: var(--fifth-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    border-radius: 15px;
+    margin: 30px auto;
+    padding-left: 15px;
+    box-shadow: 4px 4px #152737;
+}
+
+.shortenedLink > p{
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-family: "Hanuman", sans-serif;
+    font-weight: 600;
+    margin: 8px 0 0 10px;
+}
+
+.shortenedLink > p > #shortenedLink {
+    color: var(--first-color);
+    font-size: 22px;
+    font-family: "Hanuman", sans-serif;
+    font-weight: 550;
+    margin: 5px 0 0 0;
+}
+
+.shortenedLink > p > #shortenedLink:hover{
+    cursor: pointer;
+    color: var(--second-color);
+}
+
+#unshortenedLink {
+    color: var(--sixth-color);
+    font-size: 15px;
+    font-family: "Hanuman", sans-serif;
+    font-weight: 550;
+    margin-left: 10px;
+    flex-basis: 90%;
+    margin-bottom: 10px;
+}
+
+#unshortenedLink:hover{
+    cursor: pointer;
+    color: var(--third-color);
+}
+
+.logo{
+    margin-right: 12px;
+}
+
+.bx{
+    font-size: 28px;
+    margin: 5px;
+}
+
+.bx-x{
+    font-size: 30px;
+    margin-right: 0px;
+}
+
+.bx-qr{
+    margin-left: 10px;
+}
+
+.bx:hover{
+    cursor: pointer;
+    color: var(--second-color);
 }

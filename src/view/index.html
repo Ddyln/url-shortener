@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="src.js"></script>
+    <script src="script.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -23,19 +23,19 @@
         <div id="shortenURLContent" class="content">
             <h2>Shorten your link fastly</h2>
             <div class="urlInput">
-                <form action="http://127.0.0.1:5500/process" method="GET" class="formLinkInput">
+                <form id="submitForm" action="http://127.0.0.1:5500/process" method="GET" class="formLinkInput">
                     <input type="text" name="link" class="linkInput" id="url" placeholder="Enter your URL here...">
-                    <input type="submit" class="linkButton" value="Enter">
+                    <input type="submit" id="submitUrlButton" class="linkButton" value="Enter">
                 </form>
             </div>
             <div class="urlOutput">
                 <div class="shortenedLink">
-                    <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank">here</a></p>
+                    <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank"></a></p>
                     <div class="logo">
                         <icon class="copy-logo" id="copy-logo"><i class='bx bx-copy'></i></icon>
                         <icon class="qr-logo" id="qr-logo"><i class='bx bx-qr'></i></icon>
                         <icon class="close-logo" id="close-logo"><i class='bx bx-x'></i></icon></div>
-                    <a href="#" id="unshortenedLink" target="_blank">#Link_before</a>
+                    <a href="#" id="unshortenedLink" target="_blank"></a>
                 </div>
             </div>
         </div>

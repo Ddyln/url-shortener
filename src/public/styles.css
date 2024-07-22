@@ -166,7 +166,7 @@ h2{
 
 .shortenedLink > p > #shortenedLink {
     color: var(--first-color);
-    font-size: 22px;
+    font-size: 18px;
     font-family: "Hanuman", sans-serif;
     font-weight: 550;
     margin: 5px 0 0 0;

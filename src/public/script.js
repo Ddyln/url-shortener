@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
     document.getElementById('shortenURL').addEventListener('click', function() {
         showContent('shortenURLContent');
 
@@ -16,15 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     showContent('shortenURLContent');
     
-    document.getElementById('linkButton').addEventListener('click', () => {
-        // Get the user input
-        const userInput = document.getElementById('userInput').value;
-
-        // Process the input
-        const processedInput = processUserInput(userInput);
-
-        // Display the result
-        document.getElementById('resultLink').textContent = processedInput;
+    document.getElementById('submitForm').addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent the default form submission
+        const url = document.getElementById('url').value;
+        fetch('/process?link=' + url)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Received data:', data.link);
+                var el = document.getElementById('shortenedLink');
+                el.textContent = data.link;
+                el.href = data.link;
+                el = document.getElementById('unshortenedLink');
+                el.textContent = data.old;
+                el.href = data.link;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     });
 });
 
@@ -38,8 +46,3 @@ const showContent = (contentId) => {
     // Show the selected content
     document.getElementById(contentId).style.display = 'block';
 }
-
-function processUserInput(input) {
-    return input + ' (after being shortened)';    
-}
-

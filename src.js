@@ -1,46 +1,40 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('shortenURL').addEventListener('click', function() {
-        showContent('shortenURLContent');
-
-         // Reset input and result if this button is clicked
-        document.getElementById('userInput').value = '';
-        document.getElementById('urlOutput').textContent = '';
-    });
-    
-    document.getElementById('qrGenerator').addEventListener('click', function() {
-        showContent('qrGeneratorContent');
-    });
-    
-    document.getElementById('history').addEventListener('click', function() {
-        showContent('historyContent');
-    });
-    showContent('shortenURLContent');
-    
-    document.getElementById('linkButton').addEventListener('click', () => {
-        // Get the user input
-        const userInput = document.getElementById('userInput').value;
-
-        // Process the input
-        const processedInput = processUserInput(userInput);
-
-        // Display the result
-        document.getElementById('resultLink').textContent = processedInput;
-    });
-});
-
-
 function showContent(contentId) {
-    // Hide all content
-    var contents = document.getElementsByClassName('content');
-    for (var i = 0; i < contents.length; i++) {
-        contents[i].style.display = 'none';
+    // Hide all content divs
+    var contents = document.querySelectorAll('.content');
+    contents.forEach(function(content) {
+        content.style.display = 'none';
+    });
+
+    // Show the selected content div
+    var selectedContent = document.getElementById(contentId);
+    if (selectedContent) {
+        selectedContent.style.display = 'block';
     }
-
-    // Show the selected content
-    document.getElementById(contentId).style.display = 'block';
 }
 
-function processUserInput(input) {
-    return input + ' (after being shortened)';    
+// Show the content based on the current hash in the URL
+function checkHash() {
+    var hash = window.location.hash.substring(1);
+    switch (hash) {
+        case 'shortenURL':
+            showContent('shortenURLContent');
+            break;
+        case 'qrGenerator':
+            showContent('qrGeneratorContent');
+            break;
+        case 'history':
+            showContent('historyContent');
+            break;
+        default:
+            // Show default content if no hash or unrecognized hash is present
+            showContent('shortenURLContent');
+            break;
+    }
 }
+
+// Check the hash on initial load
+window.onload = checkHash;
+
+// Check the hash when the hash changes
+window.onhashchange = checkHash;
 

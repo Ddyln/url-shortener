@@ -12,15 +12,16 @@
     <header>
         <nav>
           <ul>
-            <li><a id="shortenURL">Shorten URL</a></li>
-            <li><a id="qrGenerator">QR Generator</a></li>
-            <li><a id="history">History</a></li>
+            <li><a href="#shortenURL">Shorten URL</a></li>
+            <li><a href="#qrGenerator">QR Generator</a></li>
+            <li><a href="#history">History</a></li>
           </ul>
         </nav>
-      </header>
+    </header>
     
     <main>
         <div id="shortenURLContent" class="content">
+            <div class="space"></div>
             <h2>Shorten your link fastly</h2>
             <div class="urlInput">
                 <form class="formLinkInput">
@@ -28,24 +29,24 @@
                     <input type="submit" class="linkButton" value="Process">
                 </form>
             </div>
-            <div class="urlOutput">
-                <div class="shortenedLink">
-                    <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank">#Link_after</a></p>
-                    <div class="logo">
-                        <icon class="copy-logo" id="copy-logo"><i class='bx bx-copy'></i></icon>
-                        <icon class="qr-logo" id="qr-logo"><i class='bx bx-qr'></i></icon>
-                        <icon class="close-logo" id="close-logo"><i class='bx bx-x'></i></icon></div>
-                    <a href="#" id="unshortenedLink" target="_blank">#Link_before</a>
-                </div>
+            <div class="urlOutput" id="urlOutput">
+                <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank">#Link_after</a></p>
+                <div class="logo">
+                    <icon class="copy-logo" id="copy-logo"><i class='bx bx-copy'></i></icon>
+                    <icon class="qr-logo" id="qr-logo"><i class='bx bx-qr'></i></icon>
+                    <icon class="close-logo" id="close-logo"><i class='bx bx-x'></i></icon></div>
+                <a href="#" id="unshortenedLink" target="_blank">#Link_before</a>
             </div>
         </div>
 
         <div id="qrGeneratorContent" class="content">
+            <div class="space"></div>
             <h2>QR code generator</h2>
             <p>Something in here.</p>
         </div>
 
         <div id="historyContent" class="content">
+            <div class="space"></div>
             <h2>Your history</h2>
             <p>Something in here.</p>
         </div>

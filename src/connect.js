@@ -1,8 +1,10 @@
+const path = require('path');
+require('dotenv').config({path: path.join(__dirname, '../.env')});
+const atlasURL = process.env.ATLAS_URL;
 
 const connectToDatabase = async () => {
     var mongoose = require('mongoose');
-    //Lets connect to our database using the DB server URL.
-    mongoose.connect('mongodb+srv://user:abcd1234@cluster-mongo-test.ueql9iv.mongodb.net/url-shortener?retryWrites=true&w=majority&appName=cluster-mongo-test')
+    mongoose.connect(atlasURL)
         .then((result) => {
             console.log('Connected');
             var URL = mongoose.model('link', {
@@ -20,4 +22,28 @@ const connectToDatabase = async () => {
         .catch(error => {throw error;});
 }
 
-connectToDatabase();
+const resetDatabase = async () => {
+    var mongoose = require('mongoose');
+    mongoose.connect(atlasURL)
+        .then((result) => {
+            console.log('Connected');
+            var URL = mongoose.model('link', {
+                ori: String,
+                new: String,
+                lastActive: Date
+            });
+            URL.deleteMany()
+                .then(result => {
+                    console.log(result);
+                    URL.create({
+                        ori: 'localhost:5500',
+                        new: 'localhost:5500',
+                        lastActive: new Date().toUTCString()
+                    })
+                        .then(res => console.log(res)); 
+                });
+        })
+        .catch(error => {throw error;});
+}
+
+resetDatabase();

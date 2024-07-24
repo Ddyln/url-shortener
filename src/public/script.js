@@ -1,10 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById('shortenURL').addEventListener('click', function() {
         showContent('shortenURLContent');
-
-         // Reset input and result if this button is clicked
-        document.getElementById('userInput').value = '';
-        document.getElementById('urlOutput').textContent = '';
     });
     
     document.getElementById('qrGenerator').addEventListener('click', function() {
@@ -25,10 +21,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 console.log('Received data:', data.link);
                 var el = document.getElementById('shortenedLink');
                 el.textContent = data.link;
-                el.href = data.link;
+                el.href = data.old;
                 el = document.getElementById('unshortenedLink');
                 el.textContent = data.old;
-                el.href = data.link;
+                el.href = data.old;
             })
             .catch(error => {
                 console.error('Error fetching data:', error);

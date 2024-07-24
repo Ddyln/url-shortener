@@ -3,7 +3,9 @@ var app = express();
 var mongoose = require('mongoose');
 var nanoid = require('nanoid');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({path: path.join(__dirname, '../.env')});
+const serverIP = process.env.SERVER_IP;
+const port = process.env.PORT;
 var URL = mongoose.model('link', {
 	ori: String,
 	new: String,
@@ -22,12 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use('/', (req, res, next) => {
 	console.log(req.url);
-	if (req.url.length > 1 && req.url[1] == '#') {
+	if (req.url.length > 1 && req.url[1] == '@') {
 		URL.findOne({new : req.url})
 			.then(result => {
 				if (result) {
 					// found
-
+					console.log('Found one');
+					res.redirect(result.ori);
 				}
 				else {
 					console.log('Unvalid URL.');
@@ -43,28 +46,29 @@ app.get('/', (req, res) => {
 
 app.get('/process', async (req, res) => {
 	const oldUrl = req.query.link;
-	var newUrl = "localhost:5500";
+	var newUrl = serverIP + ":" + port;
 	var id = nanoid.nanoid(10);
-	newUrl += "/#" + id;
+	newUrl += "/@" + id;
+	URL.create({
+		ori: oldUrl,
+		new: "/@" + id,
+		lastActive: new Date().toUTCString()
+	});
 	const response = {
 		link: newUrl,
 		old: oldUrl
 	}
 	res.send(response);
 	// insert created link to db
-	// URL.create({
-	// 	ori: oldUrl,
-	// 	link: newUrl,
-	// 	lastActive: new Date().toUTCString()
-	// })
 	// 	.then(res => console.log(res))
 	// 	.catch(err => console.log(err));
 	// console.log(response);
 	res.end();
 });
 
-var server = app.listen(5500, '127.0.0.1', () => {
+var server = app.listen(port, serverIP, () => {
 	var host = server.address().address;
 	var port = server.address().port;
+	if (host == '::1') host = 'localhost';
 	console.log("App is listening at: http://%s:%s", host, port);
 });

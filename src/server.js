@@ -28,12 +28,11 @@ app.use('/', (req, res, next) => {
 		URL.findOne({new : req.url})
 			.then(result => {
 				if (result) {
-					// found
-					console.log('Found one');
+					console.log('Found one!');
 					res.redirect(result.ori);
 				}
 				else {
-					console.log('Unvalid URL.');
+					console.log('Unvalid URL!');
 				}
 			});
 	}
@@ -57,12 +56,8 @@ app.get('/process', async (req, res) => {
 	const response = {
 		link: newUrl,
 		old: oldUrl
-	}
+	};
 	res.send(response);
-	// insert created link to db
-	// 	.then(res => console.log(res))
-	// 	.catch(err => console.log(err));
-	// console.log(response);
 	res.end();
 });
 

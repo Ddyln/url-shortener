@@ -1,6 +1,8 @@
 const path = require('path');
 require('dotenv').config({path: path.join(__dirname, '../.env')});
 const atlasURL = process.env.ATLAS_URL;
+const serverIP = process.env.SERVER_IP;
+const port = process.env.PORT;
 
 const connectToDatabase = async () => {
     var mongoose = require('mongoose');
@@ -13,8 +15,8 @@ const connectToDatabase = async () => {
                 lastActive: Date
             });
             URL.create({
-                ori: 'localhost:5500',
-                new: 'localhost:5500',
+                ori: serverIP + ':' + port,
+                new: serverIP + ':' + port,
                 lastActive: new Date().toUTCString()
             })
                 .then(res => console.log(res)); 
@@ -36,8 +38,8 @@ const resetDatabase = async () => {
                 .then(result => {
                     console.log(result);
                     URL.create({
-                        ori: 'localhost:5500',
-                        new: 'localhost:5500',
+                        ori: serverIP + ':' + port,
+                        new: serverIP + ':' + port,
                         lastActive: new Date().toUTCString()
                     })
                         .then(res => console.log(res)); 

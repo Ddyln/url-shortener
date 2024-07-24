@@ -1,12 +1,12 @@
 const path = require('path');
 require('dotenv').config({path: path.join(__dirname, '../.env')});
-const atlasURL = process.env.ATLAS_URL;
+const dbURL = process.env.DB_URL;
 const serverIP = process.env.SERVER_IP;
 const port = process.env.PORT;
 
 const connectToDatabase = async () => {
     var mongoose = require('mongoose');
-    mongoose.connect(atlasURL)
+    mongoose.connect(dbURL)
         .then((result) => {
             console.log('Connected');
             var URL = mongoose.model('link', {
@@ -26,7 +26,7 @@ const connectToDatabase = async () => {
 
 const resetDatabase = async () => {
     var mongoose = require('mongoose');
-    mongoose.connect(atlasURL)
+    mongoose.connect(dbURL)
         .then((result) => {
             console.log('Connected');
             var URL = mongoose.model('link', {

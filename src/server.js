@@ -11,7 +11,7 @@ var URL = mongoose.model('link', {
 	new: String,
 	lastActive: Date
 });
-const url = process.env.ATLAS_URL;
+const url = process.env.DB_URL;
 mongoose.connect(url)
 	.then(result => {
 		console.log('Connected!');

@@ -2,7 +2,7 @@
 
 ## Description
 
-A website to shorten URL using ***Node.js*** v18.14.0. For back-end, ***Express.js*** is used and the database is ***MongoDB*** .
+A website to shorten URL using ***Node.js*** v18.14.0. For back-end, ***Express.js*** is used and the database is ***MongoDB***.
 
 ## Installation
 

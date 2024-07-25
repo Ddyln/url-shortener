@@ -4,7 +4,7 @@
 
 A website to shorten URL using ***Node.js*** v18.14.0. For back-end, ***Express.js*** is used and the database is ***MongoDB***.
 
-## Installation
+## Usage
 
 Clone the repository to your local machine.
 

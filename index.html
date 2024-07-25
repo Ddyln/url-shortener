@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="src.js"></script>
+    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -20,6 +20,7 @@
     </header>
     
     <main>
+        <!-- Shorten URL Page -->
         <div id="shortenURLContent" class="content">
             <div class="space"></div>
             <h2>Shorten your link fastly</h2>
@@ -29,22 +30,46 @@
                     <input type="submit" class="linkButton" value="Process">
                 </form>
             </div>
-            <div class="urlOutput" id="urlOutput">
-                <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank">#Link_after</a></p>
-                <div class="logo">
-                    <icon class="copy-logo" id="copy-logo"><i class='bx bx-copy'></i></icon>
-                    <icon class="qr-logo" id="qr-logo"><i class='bx bx-qr'></i></icon>
-                    <icon class="close-logo" id="close-logo"><i class='bx bx-x'></i></icon></div>
-                <a href="#" id="unshortenedLink" target="_blank">#Link_before</a>
+            <div class="urlOutputModal hide">
+                <div class="urlOutput" id="urlOutput">
+                    <p>Your shortened link: <a href="#" id="shortenedLink" target="_blank">#Link_after</a></p>
+                    <div class="logo">
+                        <div class="copyIcon" id="copy-icon">
+                            <i class='bx bx-copy'></i>
+                        </div>
+                        <div class="qrIcon" id="qr-icon">
+                            <i class='bx bx-qr'></i>
+                        </div>
+                        <div class="closeIcon" id="close-icon">
+                            <i class='bx bx-x'></i>
+                        </div>
+                    </div>
+                    <a href="#" id="unshortenedLink" target="_blank">#Link_before</a>
+                </div>
+            </div>
+            <div class="qrModal hide">
+                <div class="qrInner" id="qrOutput">
+                    <div class="closeIconQR" id="close-icon">
+                        <i class='bx bx-x'></i>
+                    </div>
+                    <img src="https://static.vecteezy.com/ti/vecteur-libre/t2/2258271-template-of-qr-code-ready-to-scan-with-smartphone-vector-illustration-vectoriel.jpg"
+                     id="qrCode" alt="QR Code">
+                    <a href="#" id="shortenedLink" target="_blank">#Link_after</a>
+                    <div class="downloadIcon" id="download-icon">
+                        <i class='bx bxs-download'></i>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- Generator QR Page -->
         <div id="qrGeneratorContent" class="content">
             <div class="space"></div>
             <h2>QR code generator</h2>
             <p>Something in here.</p>
         </div>
 
+        <!-- History Page -->
         <div id="historyContent" class="content">
             <div class="space"></div>
             <h2>Your history</h2>
@@ -52,4 +77,5 @@
         </div>
     </main>
 </body>
+<script src="src.js"></script>
 </html>

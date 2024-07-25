@@ -14,6 +14,7 @@ function showContent(contentId) {
 
 // Show the content based on the current hash in the URL
 function checkHash() {
+    event.preventDefault();
     var hash = window.location.hash.substring(1);
     switch (hash) {
         case 'shortenURL':
@@ -26,7 +27,6 @@ function checkHash() {
             showContent('historyContent');
             break;
         default:
-            // Show default content if no hash or unrecognized hash is present
             showContent('shortenURLContent');
             break;
     }
@@ -38,3 +38,47 @@ window.onload = checkHash;
 // Check the hash when the hash changes
 window.onhashchange = checkHash;
 
+// Press 'Process' and show the output modal
+var buttonProcess = document.querySelector('.linkButton');
+var outputModal = document.querySelector('.urlOutputModal');
+var buttonClose = document.querySelector('.closeIcon i');
+var buttonCopy = document.querySelector('.copyIcon i');
+var buttonQR = document.querySelector('.qrIcon i');
+var qrModal = document.querySelector('.qrModal');
+var buttonCloseQR = document.querySelector('.closeIconQR i');
+
+function toggleModal() {
+    event.preventDefault();
+    outputModal.classList.toggle('hide');
+    outputModal.style.display = 'flex';
+} 
+buttonProcess.addEventListener('click', toggleModal);
+
+// Close the output modal
+function closeModal() {
+    event.preventDefault();
+    outputModal.style.display = 'none';
+}
+buttonClose.addEventListener('click', closeModal);
+
+// Copy the shortened URL
+function copyURL() {
+    event.preventDefault();
+    var copyText = document.getElementById('shortenedURL');
+    copyText.select();
+    document.execCommand('copy');
+}
+buttonCopy.addEventListener('click', copyURL);
+
+// Generate QR code
+function generateQR() {
+    event.preventDefault();
+    qrModal.classList.toggle('hide');
+    qrModal.style.display = 'block';
+}
+function closeQR() {
+    event.preventDefault();
+    qrModal.style.display = 'none';
+}
+buttonQR.addEventListener('click', generateQR);
+buttonCloseQR.addEventListener('click', closeQR);

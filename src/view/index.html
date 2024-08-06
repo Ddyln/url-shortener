@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -52,8 +53,9 @@
                     <div class="closeIconQR" id="close-icon">
                         <i class='bx bx-x'></i>
                     </div>
-                    <img src="https://static.vecteezy.com/ti/vecteur-libre/t2/2258271-template-of-qr-code-ready-to-scan-with-smartphone-vector-illustration-vectoriel.jpg"
-                     id="qrCode" alt="QR Code">
+                    <!-- <img src="https://static.vecteezy.com/ti/vecteur-libre/t2/2258271-template-of-qr-code-ready-to-scan-with-smartphone-vector-illustration-vectoriel.jpg"
+                     id="qrCode" alt="QR Code"> -->
+                    <div id="qrCode"></div>
                     <a href="#" id="shortenedLinkInQr" target="_blank">#Link_after</a>
                     <div class="downloadIcon" id="download-icon">
                         <i class='bx bxs-download'></i>

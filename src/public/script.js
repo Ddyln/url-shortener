@@ -70,6 +70,15 @@ window.addEventListener("DOMContentLoaded", () => {
     // Generate QR code
     function generateQR(event) {
         event.preventDefault();
+        var url = document.getElementById('shortenedLink').textContent;
+        const qrcode = new QRCode(document.getElementById('qrCode'), {
+            text: url,
+            width: 128,
+            height: 128,
+            colorDark : '#000',
+            colorLight : '#fff',
+            correctLevel : QRCode.CorrectLevel.H
+          });
         qrModal.classList.toggle('hide');
         qrModal.style.display = 'block';
     }
